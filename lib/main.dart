@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/login.dart';
+import 'package:my_app/postFeed.dart';
 import 'package:my_app/screen_1.dart';
 import 'package:my_app/screen_2.dart';
 
@@ -17,12 +19,19 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      initialRoute: '/',
-      routes: {
-        "/": (context) => MyHomePage(title: 'Flutter GridView'),
-        '/secondScreen': (context) => Screen1(),
-        '/thirdScreen': (context) => Screen2(),
+      // initialRoute: '/',
+      home: Login(),
+      onGenerateRoute: (settings){
+        if(settings.name=='/postFeed'){
+          return MaterialPageRoute(builder: (ctx)=>PostFeed());
+        }
       },
+      // routes: {
+      //   "/": (ctx) => Login(),
+      //   '/secondScreen': (ctx) => Screen1(),
+      //   '/thirdScreen': (ctx) => Screen2(),
+      //   '/postFeed' : (ctx) => PostFeed(),
+      // },
     );
   }
 }
